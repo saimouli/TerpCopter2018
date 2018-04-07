@@ -33,8 +33,8 @@ cache:
 # trigger a build matrix for different ROS distributions if desired.
 env:
   global:
-    - ROS_DISTRO=kinetic
-    - ROS_CI_DESKTOP="`lsb_release -sc`"  # e.g. [precise|trusty|...]
+    - ROS_DISTRO=indigo
+    - ROS_CI_DESKTOP="`lsb_release -cs`"  # e.g. [precise|trusty|...]
     - CI_SOURCE_PATH=$(pwd)
     - ROSINSTALL_FILE=$CI_SOURCE_PATH/dependencies.rosinstall
     - CATKIN_OPTIONS=$CI_SOURCE_PATH/catkin.options
@@ -47,11 +47,11 @@ env:
 
 # Install system dependencies, namely a very barebones ROS setup.
 before_install:
-  - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $ROS_CI_DESKTOP main" > /etc/apt/sources.list.d/ros-latest.list'
+  - sudo sh -c "echo \"deb http://packages.ros.org/ros/ubuntu $ROS_CI_DESKTOP main\" > /etc/apt/sources.list.d/ros-latest.list"
   - wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
   - sudo apt-get update -qq
-  - sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
-  - sudo apt-get install ros-kinetic-opencv3 ros-kinetic-camera-info-manager ros-kinetic-cv-bridge libeigen3-dev ros-kinetic-mavros
+  - sudo apt-get install -y python-catkin-pkg python-rosdep python-wstool ros-$ROS_DISTRO-catkin
+  - sudo apt-get install ros-indigo-opencv3 ros-indigo-camera-info-manager ros-indigo-cv-bridge libeigen3-dev ros-indigo-mavros
   - source /opt/ros/$ROS_DISTRO/setup.bash
   # Prepare rosdep to install dependencies.
   - sudo rosdep init
@@ -67,7 +67,7 @@ install:
   # Create the devel/setup.bash (run catkin_make with an empty workspace) and
   # source it to set the path variables.
   - cd ~/catkin_ws
-  - catkin build
+  - catkin_make
   - source devel/setup.bash
   # Add the package under integration to the workspace using a symlink.
   - cd ~/catkin_ws/src
@@ -91,10 +91,10 @@ addons:
   coverity_scan:
     project:
       name: "saimouli/TerpCopter2018"
-      description: "UMD's Autopilot Software for AMAV 2018 Competition"
+      description: "UMD's Autopilot Software for AMAV Competition 2018"
     notification_email: skatraga@umd.edu
     build_command_prepend: "cd ~/catkin_ws && rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO"
-    build_command:   "catkin build"
+    build_command:   "catkin_make"
     branch_pattern: master
 
 # Compile and test (mark the build as failed if any step fails). If the
