@@ -1,5 +1,5 @@
 # TerpCopter2018
-https://travis-ci.org/saimouli/TerpCopter2018.svg?branch=master
+https://img.shields.io/github/license/mashape/apistatus.svg
 
 ### Dependencies
 
