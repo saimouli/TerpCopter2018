@@ -32,7 +32,7 @@ arm the vechile:
 ```
 rosrun mavros mavsafety arm
 ```
-### Service Test
+### Test Services
 ```
 rossrv show [service name]
 ```
