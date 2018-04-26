@@ -41,7 +41,7 @@ env:
     - ROS_PARALLEL_JOBS='-j8 -l6'
     # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
     # via the "travis encrypt" command using the project repo's public key
-    - secure: "F0qnjx3az08XT+kxFdNqMFTxqmohc0tyxTCNMcufrG6+70mlwYnpE5eM/4nUNWzyKpAxfKzTc3gBtunbN2X/7okfy55cXA9SaA3LDXdxoluLxDmS6AfEMa3+yF4jvneAtIR4UCvPcZNDCBJXJmWQ/JYtxHVFp2wweKNzPEodVTPZm0uCkB+hvaU5d1Ono6QTNFmk+YhvaMeCt0TbULJBjOxAYYv8as5x/lI1bMwy54Jm8n/p/kiz5WSUXG3aRZXUW27IT76/kW+KpK1xyAEs/Hh0Kt1prYGYOwD8reuxng63yDG//SA27byPWrMUdZ2Hl2AZw3OcT+FvEOifK7axrIvTLtBphKY1b+mLIUYH8d3r5PvqmqtG5Bayjeqh3126xp5rpXPZzZ9qFbHkOO91ptirpPH7hNzH0tdlIDf1oRGvfyD/7eFPsOJgk8h7wmnHQGJ16NGA+JNrODpl3TLNKFzZ1ESndq32Aqt1fjg8xLpV5udZ/LTgoWNu+WepF1li3Uditzj0NZnGDCH2jEonNPo2hClV/acY6rx32E1YZSS6y0jl5SZqmQyb7ZE8eWVa42iwyivDYx0oXoD378Cxa8dgR1vK8f4r6f+3U7sclDtNM8Mg4xFrtIhd2MRuF1JJk/fBjLG4Zm1rpEKhjez8J/TNAQrMxp+ZE2pif0YInqo="
+    - secure: "cWPKo30HMePj3SyZEzun9JeMHnFVTVa/mVAQw6JQvo6urbcZllUOmZOdj64tpMwsJh0WniZ2MnzyC1e0JQt+DxTdidqGRPXLAHrj0iGP8Xkjhq5G26brhiclfBkdWdQ6UnbA0VXLFKD/m3gRHV6VEJOD9wk9b562izsQBaLTQczdYffca4JfxLsfP7Mx0O7hBEnN0I+ywMxq/ZjFe2hBZpuFkAyaRhNBYtcEeQ0o1zfOgOt63ORZerk9te3sEILgmzSs3Y8O8VfUhxcW53GOH2q4NmkRfjh/jwDldR9jrjjGHN7MCr/oozG3G7UZBdTOUCqCuuEgwybtsUkISMExOBvVliRloI3AStEfoZSbUOGM0ICoYFaWpyTrHID5LD5tkiHu67Tn5yGChe5xA81HitvOpbGAe1VNo2mOFpXBTm6kBwLXZaguCSxiUWgQAtoyqOH/L+A+yod8Q+J4pIQkZpgdU5+vP75e0aV/ov1H+u17m9WYGU4ptkFhf6TVknFNNsSQvcAy7y+YOxsoLtAVT88bGwE4yA2Z2+4LkfJkL/iSn27rLptKnHmmEVSAKoq6gIOheXP5V5Q3uhxndtVjnk80JBxNOtuQ47PRnpUjDxy3eyFQCYkb1twZkTAWJO9MyTsrkVA4MYnTpwDmFvcUHmkWDIEs1vSVPKaCvXed7/A=""
 
 ################################################################################
 
@@ -92,7 +92,7 @@ addons:
     project:
       name: "saimouli/TerpCopter2018"
       description: "UMD's Autopilot Software for AMAV Competition"
-    notification_email: skatraga@umd.edu
+    notification_email: ksaimouli@gmail.com
     build_command_prepend: "cd ~/catkin_ws && rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO"
     build_command:   "catkin_make"
     branch_pattern: master
