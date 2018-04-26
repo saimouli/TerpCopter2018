@@ -85,16 +85,13 @@ before_script:
   - cd ~/catkin_ws
   - rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 
-ignore:
-  - *.md
-  - path/to/ignorable/*
-  - Tools/
+
 # Do static code analysis with coverity
 addons:
   coverity_scan:
     project:
       name: "saimouli/TerpCopter2018"
-      description: "UMD's Autopilot Software for AMAV Competition 2018"
+      description: "UMD's Autopilot Software for AMAV Competition"
     notification_email: skatraga@umd.edu
     build_command_prepend: "cd ~/catkin_ws && rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO"
     build_command:   "catkin_make"
@@ -115,4 +112,5 @@ script:
   # Run the tests, ensuring the path is set correctly.
   - source devel/setup.bash
   - catkin_make run_tests && catkin_test_results
-  
+
+
